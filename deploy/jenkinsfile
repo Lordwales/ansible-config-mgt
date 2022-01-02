@@ -1,46 +1,20 @@
 pipeline {
     agent any
 
-  stages {
-    stage('Build') {
-      steps {
-        script {
-          sh 'echo "Building Stage"'
+    stages {
+        stage('SCM Checkout') {
+            steps {
+                // Get some code from a GitHub repository
+                git 'https://github.com/Lordwales/ansible-config-mgt'
+            }
+            
         }
-      }
-    }
-
-    stage('Test') {
-      steps {
-        script {
-          sh 'echo "Testing Stage"'
+        
+        stage('Execute Ansible') {
+            steps {
+                ansiblePlaybook credentialsId: 'Private-Key', disableHostKeyChecking: true, installation: 'Ansible', inventory: 'inventory/dev.yml', playbook: 'playbooks/site.yml'
+            }
+            
         }
-      }
     }
-
-    stage('Package') {
-      steps {
-        script {
-          sh 'echo "Packaging Stage"'
-        }
-      }
-    }
-
-    stage('Deploy') {
-      steps {
-        script {
-          sh 'echo "Deploy Stage"'
-        }
-      }
-    }
-
-    stage('Cleanup') {
-      steps {
-        script {
-          sh 'echo "Cleanup Stage"'
-        }
-      }
-    }
-  }
-  
 }
