@@ -1,6 +1,11 @@
 pipeline {
     agent any
-
+    
+    parameters {
+      string(name: 'inventory', defaultValue: 'inventory/dev.yml',  description: 'This is the inventory file for the environment to deploy configuration')
+      string(name: 'tags', defaultValue: 'webserver',  description: 'This is the tag for the task to deploy configuration')
+    }
+    
     stages {
         stage('SCM Checkout') {
             steps {
@@ -12,7 +17,7 @@ pipeline {
         
         stage('Execute Ansible') {
             steps {
-                ansiblePlaybook credentialsId: 'Private-Key', disableHostKeyChecking: true, installation: 'Ansible', inventory: 'inventory/dev.yml', playbook: 'playbooks/site.yml'
+                ansiblePlaybook credentialsId: 'Private-Key', disableHostKeyChecking: true, installation: 'Ansible', inventory: '$inventory', playbook: 'playbooks/site.yml', tags: '$tags'
             }
             
         }
