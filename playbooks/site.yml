@@ -29,4 +29,5 @@
   hosts: all
   tasks:
    - name: What is my inventory file
-     debug: var=inventory_file
+     debug: 
+        msg: "{{ inventory_file }}"
