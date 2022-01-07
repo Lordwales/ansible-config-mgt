@@ -15,7 +15,7 @@
     - always
   # gather_facts: no  
 
-- hosts: webservers,uat-webservers
+- hosts: uat-webservers
 - name: Webserver assignment
   # import_playbook: ../static-assignments/webservers.yml
   import_playbook: ../static-assignments/uat-webservers.yml
