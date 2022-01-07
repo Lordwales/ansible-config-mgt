@@ -26,7 +26,7 @@
 
 ---
 - name: Include
-- hosts: all
+  hosts: all
   tasks:
    - name: What is my inventory file
      debug: var={{inventory_file}}
