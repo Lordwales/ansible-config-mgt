@@ -30,4 +30,4 @@
   tasks:
    - name: What is my inventory file
      debug: 
-        msg: "{{ inventory_file }}"
+        msg: "{{ inventory_hostname }}"
