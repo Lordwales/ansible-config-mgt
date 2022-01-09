@@ -16,9 +16,9 @@
 - name: ccc  
   include: ../dynamic-assignments/env-vars.yml
   
-- tags:
-    - always
-- gather_facts: no  
+# - tags:
+#     - always
+# - gather_facts: no  
 
 - hosts: uat-webservers
   name: Webserver assignment  
