@@ -13,13 +13,13 @@
   include: ../dynamic-assignments/env-vars.yml
   tags:
     - always
-  gather_facts: no  
+- gather_facts: no  
 
 - hosts: uat-webservers
 - name: Webserver assignment
   # import_playbook: ../static-assignments/webservers.yml
   import_playbook: ../static-assignments/uat-webservers.yml
-  gather_facts: no
+- gather_facts: no
 # - name: Loadbalancers assignment
 #   hosts: lb
 #   import_playbook: ../static-assignments/loadbalancers.yml
