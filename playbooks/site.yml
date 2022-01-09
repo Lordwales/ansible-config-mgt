@@ -20,12 +20,13 @@
     - always
 - gather_facts: no  
 
-
-- name: Webserver assignment  
 - hosts: uat-webservers
+- name: Webserver assignment  
+  import_playbook: ../static-assignments/uat-webservers.yml
+
   # tasks:
   # import_playbook: ../static-assignments/webservers.yml
-  import_playbook: ../static-assignments/uat-webservers.yml
+  
 - gather_facts: no
 # - name: Loadbalancers assignment
 #   hosts: lb
