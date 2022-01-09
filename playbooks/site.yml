@@ -21,7 +21,7 @@
 # - gather_facts: no  
 
 - hosts: uat-webservers
-  name: Webserver assignment  
+- name: Webserver assignment  
   import_playbook: ../static-assignments/uat-webservers.yml
 
   # tasks:
