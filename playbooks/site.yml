@@ -10,8 +10,10 @@
 - name: Include dynamic variables 
   hosts: all
   tasks:
-  - import_playbook: ../static-assignments/common.yml 
-    include: ../dynamic-assignments/env-vars.yml
+   - name: kkkk
+     import_playbook: ../static-assignments/common.yml 
+   - name: ccc  
+     include: ../dynamic-assignments/env-vars.yml
   tags:
     - always
 - gather_facts: no  
